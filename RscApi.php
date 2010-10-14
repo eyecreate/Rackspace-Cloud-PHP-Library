@@ -332,7 +332,10 @@ class RscApi {
 	public function serverList($detailed = FALSE) {
 		$url = "/servers";
 		if ($detailed) {
-			$url .= "/detail";
+			$url .= "/detail?cacheid=".time();
+		}
+		else {
+		  $url .= "?cacheid=".time();
 		}
 
 		$response = $this->makeApiCall($url);
